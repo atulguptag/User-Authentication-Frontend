@@ -65,7 +65,7 @@ const MoviesAndComingmovies = () => {
             aria-labelledby="nav-home-tab"
             tabIndex="0"
           >
-            <h1 className="text-center">Under Development</h1>
+            <h1 className="under-dev">Under Development</h1>
             <MainpageCardSlider apiKey={apiKey} id={1} inTheatre={true} />
           </div>
           <MainpageCardSlider id={1} inTheatre={true} />
@@ -77,7 +77,7 @@ const MoviesAndComingmovies = () => {
           aria-labelledby="nav-profile-tab"
           tabIndex="0"
         >
-          <h1 className="text-center">Under Development</h1>
+          <h1 className="under-dev">Under Development</h1>
           <MainpageCardSlider id={2} inTheatre={false} />
         </div>
       </div>
