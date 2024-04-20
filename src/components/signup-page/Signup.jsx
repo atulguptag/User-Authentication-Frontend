@@ -7,7 +7,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"; // Assuming Fo
 import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons"; // Font Awesome icons
 
 const client = axios.create({
-  baseURL: "http://127.0.0.1:8000",
+  baseURL: "https://guptag.pythonanywhere.com",
   withCredentials: true,
   headers: {
     Accept: "application/json",

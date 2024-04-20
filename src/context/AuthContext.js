@@ -24,7 +24,7 @@ const AuthProvider = ({ children }) => {
   const loginUser = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch("http://127.0.0.1:8000/api/login/", {
+      const response = await fetch("https://guptag.pythonanywhere.com/api/login/", {
         method: "POST",
         headers: {
           Accept: "application/json",
@@ -62,7 +62,7 @@ const AuthProvider = ({ children }) => {
 
   const updateToken = useCallback(async () => {
     try {
-      const response = await fetch("http://127.0.0.1:8000/api/login/refresh/", {
+      const response = await fetch("https://guptag.pythonanywhere.com/api/login/refresh/", {
         method: "POST",
         headers: {
           Accept: "application/json",
