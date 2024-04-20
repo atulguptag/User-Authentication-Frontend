@@ -1,0 +1,127 @@
+.wrapperr {
+  display: grid;
+  grid-template-columns: auto auto auto auto auto;
+}
+.card img {
+  max-width: 100%;
+  max-height: 100%;
+}
+.active-items {
+  overflow: hidden;
+}
+.card {
+  margin: 0 1.5em;
+  box-shadow: 2px 6px 8px 0 rgba(22, 22, 26, 0.18);
+  border: none;
+  border-radius: 10;
+  width: 255px; /* or whatever width you want. */
+  max-width: 550px; /* or whatever width you want. */
+  display: inline-block;
+  height: 420px;
+  margin-bottom: 50px;
+  --bs-card-inner-border-radius: calc(0);
+}
+
+@media (min-width: 768px) {
+  .card img {
+    height: 300px;
+  }
+}
+
+.prev-button {
+  background-color: #2a2a2a;
+  position: absolute;
+  left: 0px;
+}
+
+.next-button {
+  background-color: #2a2a2a;
+  position: absolute;
+  right: 0px;
+}
+
+.film-card {
+  width: 100vh;
+}
+.camp-nav {
+  height: 65vh;
+}
+.campaigns {
+  height: 65vh;
+  margin-bottom: 8px;
+}
+.film-options {
+  display: block;
+  padding: var(--bs-nav-link-padding-y) var(--bs-nav-link-padding-x);
+  font-size: var(--bs-nav-link-font-size);
+  font-weight: var(--bs-nav-link-font-weight);
+  color: #f16775;
+  text-decoration: none;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
+    border-color 0.15s ease-in-out;
+}
+.nav {
+  --bs-nav-link-padding-x: 1rem;
+  --bs-nav-link-padding-y: 0.5rem;
+  --bs-nav-link-font-weight: ;
+  --bs-nav-link-color: #373e98;
+  --bs-nav-link-hover-color: #373e98;
+  --bs-nav-link-disabled-color: #f16775;
+
+  flex-wrap: wrap;
+  padding-left: 0;
+  margin-bottom: 0;
+  list-style: none;
+}
+.tabs {
+  margin-bottom: 25px;
+}
+.nav-tabs .nav-item.show .nav-link,
+.nav-tabs .nav-link.active {
+  color: #373e98;
+}
+.form-control {
+  color: #212529;
+  border: 1px solid #373e98;
+}
+.btn-primary {
+  --bs-btn-bg: #2a2a2a;
+  --bs-btn-border-color: #2a2a2a;
+  --bs-btn-hover-bg: #2a2a2a;
+  --bs-btn-hover-border-color: #2a2a2a;
+  --bs-btn-active-bg: #2a2a2a;
+  --bs-btn-active-border-color: #2a2a2a;
+  --bs-btn-disabled-bg: #2a2a2a;
+  --bs-btn-disabled-border-color: #2a2a2a;
+}
+.carousel-control-next,
+.carousel-control-prev {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2%;
+  padding: 0;
+  color: #fff;
+  text-align: center;
+  background: 0 0;
+  border: 0;
+  opacity: 0.5;
+  transition: opacity 0.15s ease;
+}
+
+.load-class {
+  text-align: center;
+}
+
+.text-center {
+  display: flex;
+  font-size: 50px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 50vh; /* Adjust this if you want the content to be vertically centered within a specific height */
+}
