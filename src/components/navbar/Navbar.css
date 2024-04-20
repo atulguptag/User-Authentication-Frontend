@@ -1,0 +1,123 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  align-content: center;
+}
+nav {
+  display: flex;
+  align-items: center;
+  background-color: white;
+  height: 100px;
+  padding: 30px 25px;
+  justify-content: space-between;
+}
+
+.nav--icon {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 200px;
+}
+
+.my-navbar {
+  background-color: aliceblue;
+  border-style: groove;
+  border-width: 0.00001cm;
+  border-color: lightgrey;
+}
+
+.my-button {
+  padding-right: 3vh;
+}
+.enter {
+  height: 5vh;
+}
+.text {
+  color: black;
+  font-size: 1.2em;
+  font-style: oblique;
+  padding-left: 5px;
+}
+
+.btn-outline-success {
+  display: flex;
+  --bs-btn-color: #373e98;
+  --bs-btn-border-color: #373e98;
+  --bs-btn-hover-color: #fff;
+  --bs-btn-hover-bg: #373e98;
+  --bs-btn-hover-border-color: #373e98;
+  --bs-btn-focus-shadow-rgb: 25, 135, 84;
+  --bs-btn-active-color: #fff;
+  --bs-btn-active-bg: #373e98;
+  --bs-btn-active-border-color: #373e98;
+  --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+  --bs-btn-disabled-color: #373e98;
+  --bs-btn-disabled-bg: transparent;
+  --bs-btn-disabled-border-color: #373e98;
+  --bs-gradient: none;
+}
+.navbar-toggler {
+  display: none;
+}
+
+.search-bar {
+  display: flex;
+}
+
+@media (max-width: 720px) {
+  .nav--icon {
+    width: 120px;
+  }
+
+  .search-bar {
+    display: none;
+  }
+  .btn-outline-success {
+    display: none;
+  }
+  .navbar-toggler {
+    display: flex;
+    padding: var(--bs-navbar-toggler-padding-y)
+      var(--bs-navbar-toggler-padding-x);
+    font-size: var(--bs-navbar-toggler-font-size);
+    line-height: 1;
+    color: #373e98;
+    background-color: transparent;
+    border: var(--bs-border-width) solid var(--bs-navbar-toggler-border-color);
+    border-radius: var(--bs-navbar-toggler-border-radius);
+    transition: var(--bs-navbar-toggler-transition);
+  }
+}
+
+.user-name{
+    margin-top: 0;
+    margin-bottom: 1rem;
+    margin-left: 3vh;
+    margin-top: -6vh;
+    font-family: cursive;
+    background-color: beige;
+}
+
+.main-nav{
+  display: flex;
+  width: 100%;
+}
+
+.nav-1{
+  width: 30%;
+}
+
+.nav-2{
+  width: 40%;
+  text-align: center;
+}
+
+.nav-3{
+  width: 30%;
+}
+
+.login-btn{
+  display: flex;
+  justify-content: flex-end;
+}
