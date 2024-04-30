@@ -8,7 +8,7 @@ const MainpageCardSlider = ({ id, inTheatre }) => {
   useEffect(() => {
     const fetchMovies = async () => {
       try {
-        const response = await axios.get('https://guptag.pythonanywhere.com/api/movies/');
+        const response = await axios.get('https://guptag.pythonanywhere.com/accounts/movies/');
         setmovieList(response.data);
       } catch (error) {
         console.error("Error fetching movies:", error);
