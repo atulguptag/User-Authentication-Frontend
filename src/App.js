@@ -21,9 +21,9 @@ export default function App() {
           <Navbar />
           <Routes>
             <Route path="/" element={<Mainpage />} />
-            <Route path="log-in" element={<Login />} />
-            <Route path="sign-up" element={<Signup />} />
-            <Route path="forgot-password" element={<ForgotPasswordPage />} />
+            <Route path="login" element={<Login />} />
+            <Route path="signup" element={<Signup />} />
+            <Route path="forgot_password" element={<ForgotPasswordPage />} />
           </Routes>
         </AuthProvider>
       </BrowserRouter>
