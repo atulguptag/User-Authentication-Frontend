@@ -73,9 +73,6 @@ nav {
   .search-bar {
     display: none;
   }
-  .btn-outline-success {
-    display: none;
-  }
   .navbar-toggler {
     display: flex;
     padding: var(--bs-navbar-toggler-padding-y)
@@ -90,34 +87,34 @@ nav {
   }
 }
 
-.user-name{
-    margin-top: 0;
-    margin-bottom: 1rem;
-    margin-left: 3vh;
-    margin-top: -6vh;
-    font-family: cursive;
-    background-color: beige;
+.user-name {
+  margin-top: 0;
+  margin-bottom: 1rem;
+  margin-left: 3vh;
+  margin-top: -6vh;
+  font-family: cursive;
+  background-color: beige;
 }
 
-.main-nav{
+.main-nav {
   display: flex;
   width: 100%;
 }
 
-.nav-1{
+.nav-1 {
   width: 30%;
 }
 
-.nav-2{
+.nav-2 {
   width: 40%;
   text-align: center;
 }
 
-.nav-3{
+.nav-3 {
   width: 30%;
 }
 
-.login-btn{
+.login-btn {
   display: flex;
   justify-content: flex-end;
 }
