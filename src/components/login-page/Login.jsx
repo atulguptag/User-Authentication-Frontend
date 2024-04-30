@@ -5,7 +5,6 @@ import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"; // Assuming Font Awesome
 import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons"; // Font Awesome icons
 
-
 const Login = () => {
   const { user, loginUser } = useContext(AuthContext);
 
@@ -46,11 +45,8 @@ const Login = () => {
               icon={showPassword ? faEyeSlash : faEye} // Use icons based on state
             />
           </div>
-          <button
-            className="forgotPassword"
-            type="button"
-          >
-            <Link to="/forgot-password">Forgot Password?</Link> {/* Use Link */}
+          <button className="forgotPassword" type="button">
+            <Link to="/forgot_password">Forgot Password?</Link> {/* Use Link */}
           </button>
           <input
             className="btn btn-success submitBtn"
@@ -58,7 +54,7 @@ const Login = () => {
             value="Login"
           />
           <p className="new-account">
-            Don't have an account? <a href="/sign-up">Sign Up.</a>
+            Don't have an account? <a href="/signup">Sign Up.</a>
           </p>
         </form>
       </div>
