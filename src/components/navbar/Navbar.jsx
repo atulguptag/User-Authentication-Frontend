@@ -7,16 +7,16 @@ import { FaHome } from "react-icons/fa";
 const Navbar = () => {
   let { user, logoutUser } = useContext(AuthContext);
   const navigate = useNavigate();
-  
+
   const toLogin = () => {
-    navigate("/log-in");
+    navigate("/login");
   };
   const logout = () => {
     logoutUser();
     navigate("/");
   };
   const toSignup = () => {
-    navigate("/sign-up");
+    navigate("/signup");
   };
   const toHome = () => {
     navigate("/");
@@ -32,9 +32,7 @@ const Navbar = () => {
       <nav className="navbar my-navbar">
         <div className="container-fluid">
           <div className="main-nav">
-            <div className="nav-1">
-              {/* Your Logo goes here */}
-            </div>
+            <div className="nav-1">{/* Your Logo goes here */}</div>
             <div className="nav-2">
               <div className="iconn">
                 <FaHome size={30} color="#373e98" onClick={toHome} />
