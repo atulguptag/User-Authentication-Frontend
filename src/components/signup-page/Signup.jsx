@@ -40,7 +40,7 @@ const Signup = () => {
       return;
     }
     client
-      .post("/api/register/", data)
+      .post("/accounts/register/", data)
       .then((response) => {
         alert("Your account has been successfully created!");
         setSubmissionSuccess(true); // Set state for form reset
@@ -146,7 +146,7 @@ const Signup = () => {
         />
       </form>
       <div className="text-center alreadyhave">
-        Already have an account? <a href="/log-in">Login</a>
+        Already have an account? <a href="/login">Login</a>
       </div>
     </div>
   );
