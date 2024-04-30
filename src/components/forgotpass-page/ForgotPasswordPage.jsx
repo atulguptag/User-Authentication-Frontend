@@ -17,7 +17,7 @@ const ForgotPasswordPage = () => {
 
     try {
       const response = await axios.post(
-        "https://guptag.pythonanywhere.com/api/forgot-password/",
+        "https://guptag.pythonanywhere.com/accounts/reset_password/",
         { email }
       );
       setIsSubmitted(true);
@@ -54,7 +54,7 @@ const ForgotPasswordPage = () => {
           value="Send Reset Link"
         />
         <button className="forgotPassword">
-          <Link to="/log-in">Back To Login</Link>
+          <Link to="/login">Back To Login</Link>
         </button>
       </form>
       {error && <p className="error-message">{error}</p>}
