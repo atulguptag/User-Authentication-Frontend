@@ -35,9 +35,9 @@ const AuthProvider = ({ children }) => {
           password: e.target.password.value,
         }),
       });
-      const data = await response.json();
 
       if (response.status === 200) {
+        const data = await response.json();
         alert("You're Successfully Logged In.");
         navigate("/");
         const userData = jwt_decode(data.access);
