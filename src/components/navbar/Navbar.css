@@ -80,15 +80,6 @@ nav {
   }
 }
 
-.user-name {
-  margin-top: 0;
-  margin-bottom: 1rem;
-  margin-left: 3vh;
-  margin-top: -6vh;
-  font-family: cursive;
-  background-color: beige;
-}
-
 .main-nav {
   display: flex;
   width: 100%;
