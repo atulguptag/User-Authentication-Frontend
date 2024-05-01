@@ -46,11 +46,11 @@ const AuthProvider = ({ children }) => {
         setUser(userData);
         localStorage.setItem("authTokens", JSON.stringify(data));
       } else {
-        alert("Invalid username or password. Please try again.");
+        alert("Invalid username or password. Please check your credentials.");
       }
     }
     catch (error) {
-      console.error("Something went wrong, please try again later:", error);
+      console.error("Request Timeout.", error);
     }
   };
 
