@@ -50,6 +50,7 @@ const ForgotPasswordPage = () => {
         openModal(); // Open the dialog box
       } else {
         alert("Entered mail address not found! Please check and try again.");
+        isSubmitted();
       }
     } catch (error) {
       alert("An error occurred. Please try again later.");
