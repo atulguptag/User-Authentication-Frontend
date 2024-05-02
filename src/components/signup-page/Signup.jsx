@@ -3,8 +3,13 @@ import axios from "axios";
 import React from "react";
 import { useState } from "react";
 
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"; // Assuming Font Awesome
-import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons"; // Font Awesome icons
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"; 
+import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
+
+// Set the CSRF token in the axios configuration
+axios.defaults.xsrfCookieName = 'csrftoken';
+axios.defaults.xsrfHeaderName = 'X-CSRFToken';
+axios.defaults.withCredentials = true;
 
 const client = axios.create({
   baseURL: "https://guptag.pythonanywhere.com",
@@ -21,7 +26,7 @@ const Signup = () => {
   const [submissionSuccess, setSubmissionSuccess] = useState(false);
   const handleTogglePasswordVisibility = () => {
     setShowPassword(!showPassword);
-    console.log("showPassword:", showPassword); // Log state for debugging
+    console.log("showPassword:", showPassword); 
   };
 
   React.useEffect(() => {
@@ -32,8 +37,8 @@ const Signup = () => {
   function postData(e) {
     e.preventDefault();
     const data = new FormData(document.getElementById("form"));
-    const pass1 = data.get("password"); //Store Password1 in variable
-    const pass2 = data.get("password2"); //Store Password2 in variable
+    const pass1 = data.get("password"); 
+    const pass2 = data.get("password2"); 
 
     if (pass1 !== pass2) {
       alert("Passwords do not match");
@@ -43,7 +48,7 @@ const Signup = () => {
       .post("/accounts/register/", data)
       .then((response) => {
         alert("Your account has been successfully created!");
-        setSubmissionSuccess(true); // Set state for form reset
+        setSubmissionSuccess(true); 
       })
       .catch((error) => {
         alert("You already have an account with these credentials.");
@@ -104,7 +109,7 @@ const Signup = () => {
             }`}
             aria-label="Toggle password visibility"
             onClick={handleTogglePasswordVisibility}
-            icon={showPassword ? faEyeSlash : faEye} // Use icons based on state
+            icon={showPassword ? faEyeSlash : faEye} 
           />
         </div>
         <label form="password2" className="password2-label">
@@ -128,7 +133,7 @@ const Signup = () => {
             }`}
             aria-label="Toggle password visibility"
             onClick={handleTogglePasswordVisibility}
-            icon={showPassword ? faEyeSlash : faEye} // Use icons based on state
+            icon={showPassword ? faEyeSlash : faEye} 
           />
         </div>
         <br />
