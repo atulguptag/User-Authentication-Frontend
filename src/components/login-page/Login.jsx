@@ -2,8 +2,8 @@ import "./login-page.css";
 import { useState, useContext } from "react";
 import AuthContext from "../../context/AuthContext";
 import { Link } from "react-router-dom";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"; // Assuming Font Awesome
-import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons"; // Font Awesome icons
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
 
 const Login = () => {
   const { user, loginUser } = useContext(AuthContext);
@@ -11,7 +11,7 @@ const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
   const handleTogglePasswordVisibility = () => {
     setShowPassword(!showPassword);
-    console.log("showPassword:", showPassword); // Log state for debugging
+    console.log("showPassword:", showPassword); 
   };
 
   return user ? ( // Check if user is truthy (logged in)
@@ -42,11 +42,11 @@ const Login = () => {
               }`}
               aria-label="Toggle password visibility"
               onClick={handleTogglePasswordVisibility}
-              icon={showPassword ? faEyeSlash : faEye} // Use icons based on state
+              icon={showPassword ? faEyeSlash : faEye}
             />
           </div>
           <button className="forgotPassword" type="button">
-            <Link to="/forgot_password">Forgot Password?</Link> {/* Use Link */}
+            <Link to="/forgot_password">Forgot Password?</Link>
           </button>
           <input
             className="btn btn-success submitBtn"
