@@ -1,13 +1,28 @@
 import "../login-page/login-page.css";
-import { useState } from "react";
+import { useState, Fragment } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import { Dialog, Transition } from "@headlessui/react";
+
+// Set the CSRF token in the axios configuration
+axios.defaults.xsrfCookieName = 'csrftoken';
+axios.defaults.xsrfHeaderName = 'X-CSRFToken';
+axios.defaults.withCredentials = true;
 
 const ForgotPasswordPage = () => {
   const [forgotEmail, setForgotEmail] = useState("");
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [error, setError] = useState(null);
   const [successMessage, setSuccessMessage] = useState(null);
+  const [isOpen, setIsOpen] = useState(false);
+
+  const closeModal = () => {
+    setIsOpen(false);
+  };
+
+  const openModal = () => {
+    setIsOpen(true);
+  };
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -32,12 +47,12 @@ const ForgotPasswordPage = () => {
       if (response.data && response.data.message) {
         setIsSubmitted(true);
         setSuccessMessage(response.data.message);
-        alert("Mail sent successfully!");
+        openModal(); // Open the dialog box
       } else {
-        setError("Entered mail address not found! Please check and try again.");
+        alert("Entered mail address not found! Please check and try again.");
       }
     } catch (error) {
-      setError("An error occurred. Please try again later.");
+      alert("An error occurred. Please try again later.");
     } finally {
       setForgotEmail("");
     }
@@ -71,7 +86,66 @@ const ForgotPasswordPage = () => {
         </button>
       </form>
       {error && <p className="error-message">{error}</p>}
-      {successMessage && <p className="success-message">{successMessage}</p>}
+      {successMessage && (
+        <Transition appear show={isOpen} as={Fragment}>
+          <Dialog as="div" className="relative z-10" onClose={closeModal}>
+            <Transition.Child
+              as={Fragment}
+              enter="ease-out duration-300"
+              enterFrom="opacity-0"
+              enterTo="opacity-100"
+              leave="ease-in duration-200"
+              leaveFrom="opacity-100"
+              leaveTo="opacity-0"
+            >
+              <div className="fixed inset-0 bg-black/25" />
+            </Transition.Child>
+
+            <div className="fixed inset-0 overflow-y-auto">
+              <div className="flex min-h-full items-center justify-center p-4 text-center">
+                <Transition.Child
+                  as={Fragment}
+                  enter="ease-out duration-300"
+                  enterFrom="opacity-0 scale-95"
+                  enterTo="opacity-100 scale-100"
+                  leave="ease-in duration-200"
+                  leaveFrom="opacity-100 scale-100"
+                  leaveTo="opacity-0 scale-95"
+                >
+                  <Dialog.Panel className="w-full max-w-md transform overflow-hidden rounded-2xl bg-white p-6 text-left align-middle shadow-xl transition-all">
+                    <Dialog.Title
+                      as="h3"
+                      className="text-lg font-medium leading-6 text-gray-900"
+                    >
+                      Password Reset Link Sent
+                    </Dialog.Title>
+                    <div className="mt-2">
+                      <p className="text-sm text-gray-500">
+                        We've emailed you instructions for setting your
+                        password, // if an account exists with the email you
+                        entered. You // should receive them shortly. If you
+                        don't receive an // email, please make sure you've
+                        entered the address you // registered with, and check
+                        your spam folder.
+                      </p>
+                    </div>
+
+                    <div className="mt-4">
+                      <button
+                        type="button"
+                        className="inline-flex justify-center rounded-md border border-transparent bg-blue-100 px-4 py-2 text-sm font-medium text-blue-900 hover:bg-blue-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
+                        onClick={closeModal}
+                      >
+                        Got it, thanks!
+                      </button>
+                    </div>
+                  </Dialog.Panel>
+                </Transition.Child>
+              </div>
+            </div>
+          </Dialog>
+        </Transition>
+      )}
     </div>
   );
 };
