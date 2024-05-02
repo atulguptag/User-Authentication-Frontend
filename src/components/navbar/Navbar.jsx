@@ -33,7 +33,7 @@ const Navbar = () => {
         <div className="main-nav">
           <div className="nav-1">{/* Your Logo goes here */}</div>
           <div className="nav-2">
-            <button className="btn" onClick={toHome}>
+            <button className="btn navi-2" onClick={toHome}>
               Home
             </button>
           </div>
