@@ -25,7 +25,7 @@ const Login = () => {
             className="formm"
             type="text"
             name="username"
-            placeholder="Enter Email or Username"
+            placeholder="Enter Username"
             required
           />
           <div className="password-wrapper">
