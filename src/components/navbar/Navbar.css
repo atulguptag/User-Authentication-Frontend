@@ -4,33 +4,23 @@
   box-sizing: border-box;
   align-content: center;
 }
+
 nav {
   display: flex;
   align-items: center;
   background-color: white;
-  height: 100px;
-  padding: 30px 25px;
+  height: 80px;
+  padding: 0 64px;
   justify-content: space-between;
 }
 
 .my-navbar {
-  background-color: aliceblue;
-  border-style: groove;
-  border-width: 0.00001cm;
-  border-color: lightgrey;
-}
-
-.my-button {
-  padding-right: 3vh;
-}
-.enter {
-  height: 5vh;
-}
-.text {
-  color: black;
-  font-size: 1.2em;
-  font-style: oblique;
-  padding-left: 5px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 0 64px;
+  border-style: inset;
 }
 
 .btn-outline-success {
@@ -50,34 +40,9 @@ nav {
   --bs-btn-disabled-border-color: #373e98;
   --bs-gradient: none;
 }
-.navbar-toggler {
-  display: none;
-}
 
 .search-bar {
   display: flex;
-}
-
-@media (max-width: 720px) {
-  .nav--icon {
-    width: 120px;
-  }
-
-  .search-bar {
-    display: none;
-  }
-  .navbar-toggler {
-    display: flex;
-    padding: var(--bs-navbar-toggler-padding-y)
-      var(--bs-navbar-toggler-padding-x);
-    font-size: var(--bs-navbar-toggler-font-size);
-    line-height: 1;
-    color: #373e98;
-    background-color: transparent;
-    border: var(--bs-border-width) solid var(--bs-navbar-toggler-border-color);
-    border-radius: var(--bs-navbar-toggler-border-radius);
-    transition: var(--bs-navbar-toggler-transition);
-  }
 }
 
 .main-nav {
@@ -101,4 +66,9 @@ nav {
 .login-btn {
   display: flex;
   justify-content: flex-end;
+}
+
+.navi-2:hover {
+  background-color: #ffbf00;
+  transition: 0.5s;
 }
