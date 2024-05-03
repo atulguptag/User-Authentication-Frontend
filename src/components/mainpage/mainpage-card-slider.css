@@ -26,18 +26,18 @@
   border: 1px solid #373e98;
 }
 
-.carousel-inner {
+.carousel-items-outer {
   display: flex;
   flex-wrap: wrap;
-  gap: 10px;
+  gap: 3%;
   padding: 0 64px;
-  justify-content: space-between;
 }
 
-.carousel-item {
+.carousel-items-inner {
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
-  width: 19%;
+  width: 22%;
   margin-bottom: 10px;
 }
 
@@ -57,10 +57,10 @@
 }
 
 .movie-detail-block h5 {
-  font-size: 1.2rem;
+  font-size: 1.3rem;
 }
 
 .movie-detail-block p {
   margin-bottom: 10px;
-  font-size: 0.93rem;
+  font-size: 0.97rem;
 }
