@@ -27,11 +27,11 @@ const MainpageCardSlider = ({ id, inTheatre }) => {
       data-ride="carousel"
     >
       {movieList.length > 0 && (
-        <div className="carousel-inner">
+        <div className="carousel-items-outer">
           {movieList.map((movie, index) => (
             <div
               key={index}
-              className="carousel-item active"
+              className="carousel-items-inner"
             >
               <img
                 src={movie.poster_link}
@@ -40,14 +40,14 @@ const MainpageCardSlider = ({ id, inTheatre }) => {
               />
               <div className="movie-detail-block">
                 <h5>{movie.title}</h5>
-                <p><strong>Genres: </strong>{movie.genre}</p>
+                <p><strong>Genres: {movie.genre}</strong></p>
                 <p>
-                <strong>Release Date: </strong>{" "}
-                  {new Date(movie.release_date).toLocaleDateString()}
+                <strong>Release Date: {" "}
+                  {new Date(movie.release_date).toLocaleDateString()}</strong>
                 </p>
-                <p><strong>Duration: </strong>{movie.duration} minutes</p>
-                <p><strong>Rating: </strong>{movie.rating} / 10</p>
-                <p><strong>In Theatre: </strong> {movie.in_theatre ? 'Yes' : 'No'}</p>
+                <p><strong>Duration: {movie.duration} minutes</strong></p>
+                <p><strong>Rating: {movie.rating} / 10</strong></p>
+                <p><strong>In Theatre: {movie.in_theatre ? 'Yes' : 'No'}</strong></p>
               </div>
             </div>
           ))}
