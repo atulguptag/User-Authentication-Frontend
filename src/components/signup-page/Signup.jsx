@@ -2,7 +2,7 @@ import "./sign-up.css";
 import axios from "axios";
 import React from "react";
 import { useState } from "react";
-
+import { useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"; 
 import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
 
@@ -24,6 +24,8 @@ const Signup = () => {
   const [errorText] = React.useState("");
   const [showPassword, setShowPassword] = useState(false);
   const [submissionSuccess, setSubmissionSuccess] = useState(false);
+  const navigate = useNavigate();
+
   const handleTogglePasswordVisibility = () => {
     setShowPassword(!showPassword);
     console.log("showPassword:", showPassword); 
@@ -41,7 +43,7 @@ const Signup = () => {
     const pass2 = data.get("password2"); 
 
     if (pass1 !== pass2) {
-      alert("Passwords do not match");
+      alert("Both the password fields must match!");
       return;
     }
     client
@@ -49,6 +51,7 @@ const Signup = () => {
       .then((response) => {
         alert("Your account has been successfully created!");
         setSubmissionSuccess(true); 
+        navigate('/login')
       })
       .catch((error) => {
         alert("You already have an account with these credentials.");
