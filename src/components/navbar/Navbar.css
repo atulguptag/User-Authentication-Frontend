@@ -66,6 +66,7 @@ nav {
 .login-btn {
   display: flex;
   justify-content: flex-end;
+  margin-right: 20px;
 }
 
 .navi-2:hover {
