@@ -14,7 +14,7 @@ const MainpageCardSlider = ({ id, inTheatre }) => {
 
         // Sort the movie list based on release date
         const sortedMovies = response.data.sort((a, b) => {
-          return new Date(b.release_date) - new Date(a.release_date);
+          return new Date(b.release_date) - new Date(a.current_datetime);
         });
         setMovieList(sortedMovies);
       }
