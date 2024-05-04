@@ -8,7 +8,7 @@ import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
 const Login = () => {
   const { user, loginUser } = useContext(AuthContext);
   const [showPassword, setShowPassword] = useState(false);
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [setIsLoggedIn] = useState(false);
   const navigate = useNavigate();
 
   const handleTogglePasswordVisibility = () => {
