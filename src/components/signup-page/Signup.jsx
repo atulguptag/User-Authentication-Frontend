@@ -60,14 +60,13 @@ const Signup = () => {
   return (
     <div className="signup">
       <form id="form" className="form" onSubmit={postData}>
-        <h6 className="signup-heading">Sign Up</h6>
+        <h6 className="signup-head">Sign Up</h6>
         <p className="para-text">Please fill in this form to create an account!</p>
         <hr />
         {errorText && <p className="error-text">{errorText}</p>}
         <label form="username" className="username-label">
           Username
         </label>
-        <br />
         <input
           className="formm2"
           type="text"
@@ -78,11 +77,9 @@ const Signup = () => {
           title="Please enter a title that contains only uppercase and lowercase letters, digits, and has a length of 1 to 25 characters."
           required
         />
-        <br />
         <label form="email" className="email-label">
           Email
         </label>
-        <br />
         <input
           className="formm2"
           type="text"
@@ -93,11 +90,9 @@ const Signup = () => {
           title="Please enter a valid email address"
           required
         />
-        <br />
         <label form="password" className="password-label">
           Password
         </label>
-        <br />
         <div className="password-wrapper">
           <input
             className="formm2"
@@ -118,7 +113,6 @@ const Signup = () => {
         <label form="password2" className="password2-label">
           Confirm Password
         </label>
-        <br />
         <div className="password-wrapper">
           <input
             className="formm2"
@@ -139,7 +133,6 @@ const Signup = () => {
             icon={showPassword ? faEyeSlash : faEye} 
           />
         </div>
-        <br />
         <label form="terms" className="label-form">
           By signing up, you agree to our{" "}
           <a href="/" target="_blank">

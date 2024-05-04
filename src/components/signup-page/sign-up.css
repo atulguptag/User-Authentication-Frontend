@@ -14,8 +14,11 @@
     2px 2px 6px rgba(0, 107, 194, 0.12);
 }
 
-.signup-heading {
+.signup-head {
   margin: -1.5vh 0;
+  font-size: 50px;
+  text-align: center;
+  font-weight: 400;
 }
 
 .form {
@@ -51,12 +54,7 @@
 
 .label-form {
   margin: -10px;
-  padding: 0px 0px 0px 12px;
-  display: block;
-  font-size: 13px;
-  font-weight: 400;
-  line-height: 1.33;
-  letter-spacing: 0.5px;
+  padding: 20px;
 }
 
 .form-control {

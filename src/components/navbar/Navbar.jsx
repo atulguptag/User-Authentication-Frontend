@@ -35,12 +35,12 @@ const Navbar = () => {
   };
   return (
     <>
-      <nav className="navbar my-navbar">
+      <nav className="my-navbar">
         <div className="container-fluid">
           <div className="main-nav">
             <div className="nav-1">{/* Your Logo goes here */}</div>
             <div className="nav-2">
-              <button className="btn navi-2" onClick={toHome}>
+              <button className="btn home-nav" onClick={toHome}>
                 Home
               </button>
             </div>

@@ -78,7 +78,7 @@ const ForgotPasswordPage = (email) => {
 
   return (
     <div className="logindiv">
-      <h6 className="form-heading">Forgot Password</h6>
+      <h6 className="form-head">Forgot Password</h6>
       <form className="form" onSubmit={handleSubmit}>
         <p className="email-helper-text">
           Please enter your e-mail address. You will receive an e-mail along
