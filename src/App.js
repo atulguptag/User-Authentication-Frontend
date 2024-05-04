@@ -1,10 +1,6 @@
 import "./App.css";
 import { HelmetProvider } from "react-helmet-async";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import "bootstrap/dist/css/bootstrap.min.css";
-import "jquery/dist/jquery.min.js";
-import "bootstrap/dist/js/bootstrap.min.js";
-
 import Mainpage from "./components/mainpage/Mainpage";
 import Login from "./components/login-page/Login";
 import Signup from "./components/signup-page/Signup";
