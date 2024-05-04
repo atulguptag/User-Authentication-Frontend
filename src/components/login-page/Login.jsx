@@ -6,9 +6,9 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
 
 const Login = () => {
-  const { user, loginUser } = useContext(AuthContext);
+  const { loginUser } = useContext(AuthContext);
   const [showPassword, setShowPassword] = useState(false);
-  const [setIsLoggedIn] = useState(false);
+  const [IsLoggedIn, setIsLoggedIn] = useState(false);
   const navigate = useNavigate();
 
   const handleTogglePasswordVisibility = () => {
@@ -23,12 +23,12 @@ const Login = () => {
     navigate("/"); 
   };
 
-  return user ? ( // Check if user is truthy (logged in)
+  return IsLoggedIn ? ( // Check if user is truthy (logged in)
     <h1>You are already logged in.</h1>
   ) : (
     <div className="logindiv">
-      <div>
-        <h6 className="form-heading">Welcome Back!</h6>
+      <div className="login-form">
+        <h6 className="form-head">Welcome Back!</h6>
         <form className="form" onSubmit={handleLogin}>
           <input
             className="formm"
