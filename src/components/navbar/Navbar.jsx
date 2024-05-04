@@ -1,17 +1,24 @@
 import "./Navbar.css";
-import { useContext } from "react";
+import { useContext, useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import AuthContext from "../../context/AuthContext";
 
 const Navbar = () => {
   const { user, logoutUser } = useContext(AuthContext);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
   const navigate = useNavigate();
+
+  useEffect(() => {
+    // Check if user is logged in when component mounts
+    setIsLoggedIn(user !== null);
+  }, [user]); // Re-run effect whenever user state changes
 
   const toLogin = () => {
     navigate("/login");
   };
   const logout = () => {
     logoutUser();
+    setIsLoggedIn(false); // Update login status
     navigate("/");
   };
   const toSignup = () => {
@@ -28,59 +35,59 @@ const Navbar = () => {
   };
   return (
     <>
-    <nav className="navbar my-navbar">
-      <div className="container-fluid">
-        <div className="main-nav">
-          <div className="nav-1">{/* Your Logo goes here */}</div>
-          <div className="nav-2">
-            <button className="btn navi-2" onClick={toHome}>
-              Home
-            </button>
-          </div>
-          <div className="nav-3">
-            {user ? (
-              <div className="login-btn">
-                {user.is_superuser ? (
+      <nav className="navbar my-navbar">
+        <div className="container-fluid">
+          <div className="main-nav">
+            <div className="nav-1">{/* Your Logo goes here */}</div>
+            <div className="nav-2">
+              <button className="btn navi-2" onClick={toHome}>
+                Home
+              </button>
+            </div>
+            <div className="nav-3">
+              {isLoggedIn ? ( // Use isLoggedIn state to determine login status
+                <div className="login-btn">
+                  {user.is_superuser ? (
+                    <button
+                      className="btn btn-outline-success admin m-2"
+                      onClick={toAdminPage}
+                    >
+                      Admin Panel
+                    </button>
+                  ) : (
+                    <button
+                      className="btn btn-outline-success m-2"
+                      onClick={toTicketPage}
+                    >
+                      My Tickets
+                    </button>
+                  )}
                   <button
-                    className="btn btn-outline-success admin m-2"
-                    onClick={toAdminPage}
+                    className="btn btn-outline-success logout-btn m-2"
+                    onClick={logout}
                   >
-                    Admin Panel
+                    Log Out
                   </button>
-                ) : (
+                </div>
+              ) : (
+                <div className="login-btn">
                   <button
                     className="btn btn-outline-success m-2"
-                    onClick={toTicketPage}
+                    onClick={toLogin}
                   >
-                    My Tickets
+                    Log In
                   </button>
-                )}
-                <button
-                  className="btn btn-outline-success logout-btn m-2"
-                  onClick={logout}
-                >
-                  Log Out
-                </button>
-              </div>
-            ) : (
-              <div className="login-btn">
-                <button
-                  className="btn btn-outline-success m-2"
-                  onClick={toLogin}
-                >
-                  Log In
-                </button>
-                <button
-                  className="btn btn-outline-success m-2"
-                  onClick={toSignup}
-                >
-                  Sign Up
-                </button>
-              </div>
-            )}
+                  <button
+                    className="btn btn-outline-success m-2"
+                    onClick={toSignup}
+                  >
+                    Sign Up
+                  </button>
+                </div>
+              )}
+            </div>
           </div>
         </div>
-      </div>
       </nav>
     </>
   );
