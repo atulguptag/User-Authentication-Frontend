@@ -45,6 +45,7 @@
   width: 100%;
   height: 400px;
   object-fit: cover;
+  border-radius: 10px 10px 0 0;
 }
 
 .movie-detail-block {
@@ -54,6 +55,7 @@
   color: #ffffff;
   text-align: center;
   background-color: #27272a;
+  border-radius: 0 0 10px 10px;
 }
 
 .movie-detail-block h5 {
