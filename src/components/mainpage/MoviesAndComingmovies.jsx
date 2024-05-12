@@ -7,7 +7,7 @@ const MoviesAndComingmovies = () => {
   const [apiKey, setmovieList] = useState("");
 
   useEffect(() => {
-    document.title = "Home Page";
+    document.title = "Welcome to MoviePassa";
   }, []);
 
   useEffect(() => {
@@ -27,22 +27,16 @@ const MoviesAndComingmovies = () => {
 
   return (
     <>
-      <div>
-        <nav>
-          <div className="nav nav-tabs tabs" id="nav-tab" role="tablist">
-            <button
-              className="nav-link active film-options"
-              id="nav-home-tab"
-              data-bs-toggle="tab"
-              data-bs-target="#nav-home"
-              type="button"
-              role="tab"
-              aria-controls="nav-home"
-              aria-selected="true"
-            >
-              Movies In Theaters
-            </button>
-            {/* <button
+      <div className="site-lower-row-container-inner">
+        <div className="nav nav-tabs tabs">
+          <button
+            className="nav-link active film-options"
+            id="nav-home-tab"
+            type="button"
+          >
+            Movies In Theaters
+          </button>
+          {/* <button
             className="nav-link film-options"
             id="nav-profile-tab"
             data-bs-toggle="tab"
@@ -54,27 +48,27 @@ const MoviesAndComingmovies = () => {
           >
             Coming Soon
           </button> */}
-          </div>
-        </nav>
-        <div className="tab-content" id="nav-tabContent">
+        </div>
+      </div>
+      <div className="tab-content" id="nav-tabContent">
+        <div
+          className="tab-pane fade show active"
+          id="nav-home"
+          role="tabpanel"
+          aria-labelledby="nav-home-tab"
+          tabIndex="0"
+        >
           <div
             className="tab-pane fade show active"
             id="nav-home"
             role="tabpanel"
             aria-labelledby="nav-home-tab"
-            tabIndex="0"
+            tabIndex="1"
           >
-            <div
-              className="tab-pane fade show active"
-              id="nav-home"
-              role="tabpanel"
-              aria-labelledby="nav-home-tab"
-              tabIndex="0"
-            >
-              <MainpageCardSlider apiKey={apiKey} id={1} inTheatre={true} />
-            </div>
+            <MainpageCardSlider apiKey={apiKey} id={1} inTheatre={true} />
           </div>
-          {/* <div
+        </div>
+        {/* <div
           className="tab-pane fade"
           id="nav-profile"
           role="tabpanel"
@@ -83,7 +77,6 @@ const MoviesAndComingmovies = () => {
         >
           <MainpageCardSlider id={2} inTheatre={false} />
         </div> */}
-        </div>
       </div>
     </>
   );
