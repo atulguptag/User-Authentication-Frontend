@@ -98,3 +98,9 @@ div {
 .togglePassword {
   margin-left: -40px; /* Adjust spacing as needed */
 }
+
+.already-logged {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
