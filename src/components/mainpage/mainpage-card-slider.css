@@ -1,31 +1,3 @@
-.nav {
-  --bs-nav-link-padding-x: 1rem;
-  --bs-nav-link-padding-y: 0.5rem;
-  --bs-nav-link-font-weight: ;
-  --bs-nav-link-color: #373e98;
-  --bs-nav-link-hover-color: #373e98;
-  --bs-nav-link-disabled-color: #f16775;
-
-  flex-wrap: wrap;
-  padding-left: 0;
-  margin-bottom: 0;
-  list-style: none;
-}
-
-.tabs {
-  margin-bottom: 25px;
-}
-
-.nav-tabs .nav-item.show .nav-link,
-.nav-tabs .nav-link.active {
-  color: #373e98;
-}
-
-.form-control {
-  color: #212529;
-  border: 1px solid #373e98;
-}
-
 .carousel-items-outer {
   display: flex;
   flex-wrap: wrap;
