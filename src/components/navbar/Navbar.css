@@ -5,7 +5,7 @@
   align-content: center;
 }
 
-nav {
+.site-lower-row-container-inner {
   display: flex;
   align-items: center;
   background-color: white;
@@ -20,6 +20,7 @@ nav {
   align-items: center;
   width: 100%;
   padding: 0 64px;
+  height: 80px;
   border-style: inset;
 }
 
