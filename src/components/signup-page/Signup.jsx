@@ -1,7 +1,7 @@
 import "./sign-up.css";
 import axios from "axios";
 import React from "react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"; 
 import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
@@ -25,6 +25,10 @@ const Signup = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [submissionSuccess, setSubmissionSuccess] = useState(false);
   const navigate = useNavigate();
+
+  useEffect(() => {
+    document.title = "SignUp";
+  }, []);
 
   const handleTogglePasswordVisibility = () => {
     setShowPassword(!showPassword);

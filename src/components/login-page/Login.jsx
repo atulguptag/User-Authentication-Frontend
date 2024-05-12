@@ -1,5 +1,5 @@
 import "./login-page.css";
-import { useState, useContext } from "react";
+import { useState, useEffect, useContext } from "react";
 import AuthContext from "../../context/AuthContext";
 import { useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -10,6 +10,10 @@ const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [IsLoggedIn, setIsLoggedIn] = useState(false);
   const navigate = useNavigate();
+
+  useEffect(() => {
+    document.title = "Login";
+  }, []);
 
   const handleTogglePasswordVisibility = () => {
     setShowPassword(!showPassword);

@@ -1,5 +1,5 @@
 import "../login-page/login-page.css";
-import { useState, Fragment } from "react";
+import { useState, useEffect, Fragment } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import { Dialog, Transition } from "@headlessui/react";
@@ -15,6 +15,10 @@ const ForgotPasswordPage = (email) => {
   const [error, setError] = useState(null);
   const [successMessage, setSuccessMessage] = useState(null);
   const [isOpen, setIsOpen] = useState(false);
+
+  useEffect(() => {
+    document.title = "Forgot Password";
+  }, []);
 
   const closeModal = () => {
     setIsOpen(false);
@@ -45,13 +49,27 @@ const ForgotPasswordPage = (email) => {
       return;
     }
 
+    // Function to extract CSRF token from cookies
+    const getCookie = (name) => {
+      const cookieValue = document.cookie.match(
+        "(^|;)\\s*" + name + "\\s*=\\s*([^;]+)"
+      );
+      return cookieValue ? cookieValue.pop() : "";
+    };
+
     try {
+      const csrfToken = getCookie("csrftoken"); // Get CSRF token from cookies
       const response = await axios.post(
         "https://guptag.pythonanywhere.com/accounts/reset_password/",
         body,
         config,
         { email: forgotEmail },
-        { headers: { "X-CSRFToken": getCookie("csrftoken") } }
+        {
+          headers: {
+            "Content-Type": "application/json",
+            "X-CSRFToken": csrfToken, // Include CSRF token in headers
+          }
+        },
       );
       if (response.data && response.data.message) {
         setIsSubmitted(true);
@@ -66,14 +84,6 @@ const ForgotPasswordPage = (email) => {
     } finally {
       setForgotEmail("");
     }
-  };
-
-  // Function to extract CSRF token from cookies
-  const getCookie = (name) => {
-    const cookieValue = document.cookie.match(
-      "(^|;)\\s*" + name + "\\s*=\\s*([^;]+)"
-    );
-    return cookieValue ? cookieValue.pop() : "";
   };
 
   return (

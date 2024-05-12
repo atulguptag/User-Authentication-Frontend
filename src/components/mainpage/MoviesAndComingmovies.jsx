@@ -7,6 +7,10 @@ const MoviesAndComingmovies = () => {
   const [apiKey, setmovieList] = useState("");
 
   useEffect(() => {
+    document.title = "Home Page";
+  }, []);
+
+  useEffect(() => {
     const fetchMovies = async () => {
       try {
         const response = await axios.get(
