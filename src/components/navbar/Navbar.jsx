@@ -9,16 +9,23 @@ const Navbar = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    // Check if user is logged in when component mounts
     setIsLoggedIn(user !== null);
   }, [user]); // Re-run effect whenever user state changes
+
+  useEffect(() => {
+    const tokenStorage = localStorage.getItem("authTokens");
+    if (tokenStorage === 200) {
+      setIsLoggedIn(true);
+    }
+  },[])  
 
   const toLogin = () => {
     navigate("/login");
   };
   const logout = () => {
     logoutUser();
-    setIsLoggedIn(false); // Update login status
+    window.location.reload();
+    setIsLoggedIn(false); 
     navigate("/");
   };
   const toSignup = () => {
@@ -27,9 +34,9 @@ const Navbar = () => {
   const toHome = () => {
     navigate("/");
   };
-  const toAdminPage = () => {
-    navigate("/admin");
-  };
+  // const toAdminPage = () => {
+  //   navigate("/admin");
+  // };
   const toTicketPage = () => {
     navigate("/tickets");
   };
@@ -47,14 +54,7 @@ const Navbar = () => {
             <div className="nav-3">
               {isLoggedIn ? ( // Use isLoggedIn state to determine login status
                 <div className="login-btn">
-                  {user.is_superuser ? (
-                    <button
-                      className="btn btn-outline-success admin m-2"
-                      onClick={toAdminPage}
-                    >
-                      Admin Panel
-                    </button>
-                  ) : (
+                  {(
                     <button
                       className="btn btn-outline-success m-2"
                       onClick={toTicketPage}
