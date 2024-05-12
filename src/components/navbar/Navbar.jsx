@@ -41,8 +41,8 @@ const Navbar = () => {
     navigate("/tickets");
   };
   return (
-    <>
-      <nav className="my-navbar">
+    <div className="site-header-row-container-inner">
+      <div className="my-navbar">
         <div className="container-fluid">
           <div className="main-nav">
             <div className="nav-1">{/* Your Logo goes here */}</div>
@@ -88,8 +88,8 @@ const Navbar = () => {
             </div>
           </div>
         </div>
-      </nav>
-    </>
+      </div>
+    </div>
   );
 };
 
