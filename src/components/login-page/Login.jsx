@@ -1,7 +1,6 @@
 import "./login-page.css";
 import { useState, useEffect, useContext } from "react";
 import AuthContext from "../../context/AuthContext";
-import { useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
 
@@ -9,7 +8,6 @@ const Login = () => {
   const { loginUser } = useContext(AuthContext);
   const [showPassword, setShowPassword] = useState(false);
   const [IsLoggedIn, setIsLoggedIn] = useState(false);
-  const navigate = useNavigate();
 
   useEffect(() => {
     document.title = "Login";
@@ -24,11 +22,10 @@ const Login = () => {
     e.preventDefault();
     await loginUser(e);
     setIsLoggedIn(true);
-    navigate("/"); 
   };
 
   return IsLoggedIn ? ( // Check if user is truthy (logged in)
-    <h1>You are already logged in.</h1>
+    <h1 className="already-logged">You are already logged in.</h1>
   ) : (
     <div className="logindiv">
       <div className="login-form">
