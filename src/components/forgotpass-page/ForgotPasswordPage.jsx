@@ -68,8 +68,8 @@ const ForgotPasswordPage = (email) => {
           headers: {
             "Content-Type": "application/json",
             "X-CSRFToken": csrfToken, // Include CSRF token in headers
-          }
-        },
+          },
+        }
       );
       if (response.data && response.data.message) {
         setIsSubmitted(true);
