@@ -11,67 +11,70 @@ const AuthProvider = ({ children }) => {
       ? JSON.parse(localStorage.getItem("authTokens"))
       : null
   );
-
+  console.log(authTokens);
   const [user, setUser] = useState(() =>
     localStorage.getItem("authTokens")
       ? jwt_decode(localStorage.getItem("authTokens"))
       : null
   );
 
-  const [loading, setLoading] = useState(true);
+  let [loading, setLoading] = useState(true);
   const navigate = useNavigate();
 
-  const loginUser = async (e) => {
+  let loginUser = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch("https://guptag.pythonanywhere.com/accounts/login/", {
-        method: "POST",
-        headers: {
-          Accept: "application/json",
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          username: e.target.username.value,
-          password: e.target.password.value,
-        }),
-      });
+      const response = await fetch(
+        "https://guptag.pythonanywhere.com/accounts/login/",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            username: e.target.username.value,
+            password: e.target.password.value,
+          }),
+        }
+      );
+      let data = await response.json();
 
       if (response.status === 200) {
-        const data = await response.json();
         alert("You're Successfully Logged In.");
-        navigate("/");
-        const userData = jwt_decode(data.access);
+        let userData = jwt_decode(data.access);
         userData.is_superuser = userData.is_superuser || false;
         setAuthTokens(data);
         setUser(userData);
         localStorage.setItem("authTokens", JSON.stringify(data));
+        navigate("/");
       } else {
         alert("Invalid username or password. Please check your credentials.");
       }
-    }
-    catch (error) {
+    } catch (error) {
       console.error("Request Timeout.", error);
     }
   };
 
-  const logoutUser = () => {
+  let logoutUser = () => {
     setAuthTokens(null);
     setUser(null);
     localStorage.removeItem("authTokens");
   };
 
-  const updateToken = useCallback(async () => {
+  let updateToken = useCallback(async () => {
     try {
-      const response = await fetch("https://guptag.pythonanywhere.com/accounts/login/refresh/", {
-        method: "POST",
-        headers: {
-          Accept: "application/json",
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ refresh: authTokens?.refresh }),
-      });
+      let response = await fetch(
+        "https://guptag.pythonanywhere.com/accounts/login/refresh/",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ refresh: authTokens?.refresh }),
+        }
+      );
 
-      const data = await response.json();
+      let data = await response.json();
 
       if (response.status === 200) {
         setAuthTokens(data);
@@ -88,12 +91,19 @@ const AuthProvider = ({ children }) => {
       console.error("Token refresh error:", error);
       logoutUser();
     }
-  }, [authTokens, loading]);
+  }, [authTokens?.refresh, loading]);
+
+  let contextData = {
+    user: user,
+    authTokens: authTokens,
+    loginUser: loginUser,
+    logoutUser: logoutUser,
+  };
 
   useEffect(() => {
-    const fourMinutes = 1000 * 60 * 4;
+    let fourMinutes = 1000 * 60 * 4;
 
-    const interval = setInterval(() => {
+    let interval = setInterval(() => {
       if (authTokens) {
         updateToken();
       }
@@ -101,13 +111,6 @@ const AuthProvider = ({ children }) => {
 
     return () => clearInterval(interval);
   }, [authTokens, loading, updateToken]);
-
-  const contextData = {
-    user: user,
-    authTokens: authTokens,
-    loginUser: loginUser,
-    logoutUser: logoutUser,
-  };
 
   return (
     <AuthContext.Provider value={contextData}>{children}</AuthContext.Provider>
