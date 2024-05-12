@@ -1,7 +1,5 @@
 import React, { createContext, useState, useEffect, useCallback } from "react";
 import { useNavigate } from "react-router-dom";
-
-const { default: jwt_decode } = require("jwt-decode");
 const AuthContext = createContext();
 export default AuthContext;
 
@@ -14,7 +12,7 @@ const AuthProvider = ({ children }) => {
   console.log(authTokens);
   const [user, setUser] = useState(() =>
     localStorage.getItem("authTokens")
-      ? jwt_decode(localStorage.getItem("authTokens"))
+      ? localStorage.getItem("authTokens")
       : null
   );
 
@@ -41,8 +39,7 @@ const AuthProvider = ({ children }) => {
 
       if (response.status === 200) {
         alert("You're Successfully Logged In.");
-        let userData = jwt_decode(data.access);
-        userData.is_superuser = userData.is_superuser || false;
+        let userData = data.access;
         setAuthTokens(data);
         setUser(userData);
         localStorage.setItem("authTokens", JSON.stringify(data));
@@ -78,7 +75,7 @@ const AuthProvider = ({ children }) => {
 
       if (response.status === 200) {
         setAuthTokens(data);
-        setUser(jwt_decode(data.access));
+        // setUser(jwt_decode(data.access));
         localStorage.setItem("authTokens", JSON.stringify(data));
       } else {
         logoutUser();
