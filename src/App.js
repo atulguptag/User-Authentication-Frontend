@@ -7,6 +7,7 @@ import Signup from "./components/signup-page/Signup";
 import ForgotPasswordPage from "./components/forgotpass-page/ForgotPasswordPage.jsx";
 import Navbar from "./components/navbar/Navbar";
 import { AuthProvider } from "./context/AuthContext";
+import Ticket from "./components/ticket-page/Ticket";
 
 export default function App() {
   const helmetContext = {};
@@ -17,12 +18,13 @@ export default function App() {
           <Navbar />
           <Routes>
             <Route path="/" element={<Mainpage />} />
-            <Route path="login" element={<Login />} />
-            <Route path="signup" element={<Signup />} />
-            <Route path="forgot_password" element={<ForgotPasswordPage />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/signup" element={<Signup />} />
+            <Route path="/forgot_password" element={<ForgotPasswordPage />} />
+            <Route path="/tickets" element={<Ticket />} />
           </Routes>
         </AuthProvider>
       </BrowserRouter>
     </HelmetProvider>
   );
-};
+}
