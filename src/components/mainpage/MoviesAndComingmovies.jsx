@@ -1,30 +1,14 @@
 import { useState, useEffect } from "react";
 import "./mainpage-card-slider.css";
-import axios from "axios";
 import MainpageCardSlider from "./MainpageCardSlider";
 
 const MoviesAndComingmovies = () => {
-  const [apiKey, setmovieList] = useState("");
+  const [apiKey] = useState("");
 
   useEffect(() => {
     document.title = "Welcome to MoviePassa";
   }, []);
-
-  useEffect(() => {
-    const fetchMovies = async () => {
-      try {
-        const response = await axios.get(
-          "https://guptag.pythonanywhere.com/accounts/movies/"
-        );
-        setmovieList(response.data);
-      } catch (error) {
-        console.error("Error fetching movies:", error);
-      }
-    };
-
-    fetchMovies();
-  }, []);
-
+  
   return (
     <>
       <div className="site-lower-row-container-inner">
