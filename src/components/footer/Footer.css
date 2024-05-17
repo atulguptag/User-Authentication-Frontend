@@ -44,3 +44,8 @@
 .footer-copyright {
   text-align: center;
 }
+
+.nav-footer--icon {
+  width: 50%;
+  /* filter: invert(48%) sepia(79%) saturate(2476%) hue-rotate(86deg) brightness(118%) contrast(119%); */
+}
