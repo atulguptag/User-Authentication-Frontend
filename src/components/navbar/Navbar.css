@@ -56,3 +56,10 @@
   background-color: green;
   transition: 0.5s;
 }
+
+.nav--icon {
+  display: flex;
+  justify-content: center;
+  width: 50%;
+  padding-bottom: 15px;
+}

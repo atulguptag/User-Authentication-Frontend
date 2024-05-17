@@ -2,6 +2,7 @@ import "./Navbar.css";
 import { useContext, useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import AuthContext from "../../context/AuthContext";
+import logo from "../../assets/images/moviepassa-logo.svg";
 
 const Navbar = () => {
   const { user, logoutUser } = useContext(AuthContext);
@@ -17,7 +18,7 @@ const Navbar = () => {
     if (tokenStorage === 200) {
       setIsLoggedIn(true);
     }
-  },[])  
+  }, []);
 
   const toLogin = () => {
     navigate("/login");
@@ -45,7 +46,9 @@ const Navbar = () => {
       <div className="my-navbar">
         <div className="container-fluid">
           <div className="main-nav">
-            <div className="nav-1">{/* Your Logo goes here */}</div>
+            <div className="nav-1">
+              <img src={logo} alt="Logo" className="nav--icon" onClick={toHome}/>
+            </div>
             <div className="nav-2">
               <button className="btn home-nav" onClick={toHome}>
                 Home
@@ -54,14 +57,14 @@ const Navbar = () => {
             <div className="nav-3">
               {isLoggedIn ? ( // Use isLoggedIn state to determine login status
                 <div className="login-btn">
-                  {(
+                  {
                     <button
                       className="btn btn-outline-success m-2"
                       onClick={toTicketPage}
                     >
                       My Tickets
                     </button>
-                  )}
+                  }
                   <button
                     className="btn btn-outline-success logout-btn m-2"
                     onClick={logout}
