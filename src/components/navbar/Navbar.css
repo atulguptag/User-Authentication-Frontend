@@ -59,7 +59,12 @@
 
 .nav--icon {
   display: flex;
-  justify-content: center;
-  width: 50%;
-  padding-bottom: 15px;
+  justify-content: space-between;
+  align-items: center;
+  width: 70%;
+  padding-bottom: 22px;
+}
+
+.container-fluid-nav {
+  width: 100%;
 }

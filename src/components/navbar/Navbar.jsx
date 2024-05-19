@@ -44,7 +44,7 @@ const Navbar = () => {
   return (
     <div className="site-header-row-container-inner">
       <div className="my-navbar">
-        <div className="container-fluid">
+        <div className="container-fluid-nav">
           <div className="main-nav">
             <div className="nav-1">
               <img src={logo} alt="Logo" className="nav--icon" onClick={toHome}/>
