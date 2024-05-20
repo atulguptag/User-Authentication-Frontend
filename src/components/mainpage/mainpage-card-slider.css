@@ -11,6 +11,7 @@
   justify-content: space-between;
   width: 22%;
   margin-bottom: 10px;
+  box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .15) !important;
 }
 
 .movie-poster {
