@@ -19,7 +19,6 @@ const Login = () => {
   };
 
   const handleLogin = async (e) => {
-    e.preventDefault();
     await loginUser(e);
     setIsLoggedIn(true);
   };
