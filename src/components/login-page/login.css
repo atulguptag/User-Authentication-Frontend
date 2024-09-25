@@ -1,0 +1,12 @@
+.card {
+    border-radius: 10px;
+    border-color: lightgrey;
+    box-sizing: border-box;
+    box-shadow: -2px -2px 6px rgba(0, 107, 194, 0.12),
+      2px 2px 6px rgba(0, 107, 194, 0.12);
+  }
+  
+  .form {
+    padding: 1vh 3vh;
+  }
+  

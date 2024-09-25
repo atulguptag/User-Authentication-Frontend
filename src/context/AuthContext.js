@@ -1,118 +1,71 @@
-import React, { createContext, useState, useEffect, useCallback } from "react";
+import { createContext, useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+
 const AuthContext = createContext();
-export default AuthContext;
 
-const AuthProvider = ({ children }) => {
-  const [authTokens, setAuthTokens] = useState(() =>
-    localStorage.getItem("authTokens")
-      ? JSON.parse(localStorage.getItem("authTokens"))
-      : null
-  );
-  console.log(authTokens);
-  const [user, setUser] = useState(() =>
-    localStorage.getItem("authTokens")
-      ? localStorage.getItem("authTokens")
-      : null
-  );
-
-  let [loading, setLoading] = useState(true);
+export const AuthProvider = ({ children }) => {
+  const [user, setUser] = useState(null);
+  const [loading, setLoading] = useState(true);
   const navigate = useNavigate();
 
-  let loginUser = async (e) => {
+  // Function to handle user login
+  const loginUser = async (e) => {
     e.preventDefault();
+    const username = e.target.username.value;
+    const password = e.target.password.value;
+
     try {
-      const response = await fetch(
-        "https://guptag.pythonanywhere.com/accounts/login/",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            username: e.target.username.value,
-            password: e.target.password.value,
-          }),
-        }
-      );
-      let data = await response.json();
+      const response = await fetch("https://guptag.pythonanywhere.com/accounts/login/", {  
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          username,
+          password,
+        }),
+      });
 
       if (response.status === 200) {
-        alert("You're Successfully Logged In.");
-        let userData = data.access;
-        setAuthTokens(data);
-        setUser(userData);
-        localStorage.setItem("authTokens", JSON.stringify(data));
-        navigate("/");
-      } else {
-        alert("Invalid username or password. Please check your credentials.");
+        const data = await response.json();
+        setUser(data); // Store user data (tokens)
+        navigate("/"); // Redirect to home page on successful login
+        alert("Logged in successfully!")
+        return { success: true };
       }
-    } catch (error) {
-      console.error("Request Timeout.", error);
+      else {
+        // Return failure message if login fails
+        return {
+          success: false,
+          message: "Invalid username or password!"
+        };
+      }
+    }
+    catch (error) {
+      // Handle any unexpected errors
+      return {
+        success: false,
+        message: "An error occurred. Please try again.",
+      };
     }
   };
 
-  let logoutUser = () => {
-    setAuthTokens(null);
-    setUser(null);
-    localStorage.removeItem("authTokens");
-    navigate('/');
-  };
-
-  let updateToken = useCallback(async () => {
-    try {
-      let response = await fetch(
-        "https://guptag.pythonanywhere.com/accounts/login/refresh/",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({ refresh: authTokens?.refresh }),
-        }
-      );
-
-      let data = await response.json();
-
-      if (response.status === 200) {
-        setAuthTokens(data);
-        // setUser(jwt_decode(data.access));
-        localStorage.setItem("authTokens", JSON.stringify(data));
-      } else {
-        logoutUser();
-      }
-
-      if (loading) {
-        setLoading(false);
-      }
-    } catch (error) {
-      console.error("Token refresh error:", error);
-      logoutUser();
-    }
-  }, [authTokens?.refresh, loading]);
-
-  let contextData = {
-    user: user,
-    authTokens: authTokens,
-    loginUser: loginUser,
-    logoutUser: logoutUser,
+  // Function to handle user logout
+  const logoutUser = () => {
+    setUser(null); // Clear user data on logout
+    navigate("/login"); // Redirect to login page
   };
 
   useEffect(() => {
-    let fourMinutes = 1000 * 60 * 4;
-
-    let interval = setInterval(() => {
-      if (authTokens) {
-        updateToken();
-      }
-    }, fourMinutes);
-
-    return () => clearInterval(interval);
-  }, [authTokens, loading, updateToken]);
+    // This is a placeholder to handle any initial setup if needed, such as fetching user data.
+    setLoading(false);
+  }, []);
 
   return (
-    <AuthContext.Provider value={contextData}>{children}</AuthContext.Provider>
+    <AuthContext.Provider value={{ loginUser, logoutUser, user }}>
+      {!loading && children}
+    </AuthContext.Provider>
   );
 };
 
-export { AuthContext, AuthProvider };
+export default AuthContext;

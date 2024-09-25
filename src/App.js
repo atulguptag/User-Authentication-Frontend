@@ -4,7 +4,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Mainpage from "./components/mainpage/Mainpage";
 import Login from "./components/login-page/Login";
 import Signup from "./components/signup-page/Signup";
-import ForgotPasswordPage from "./components/forgotpass-page/ForgotPasswordPage.jsx";
+import ForgotPasswordPage from "./components/forgotpassword-page/ForgotPassword.jsx";
 import Navbar from "./components/navbar/Navbar";
 import { AuthProvider } from "./context/AuthContext";
 import Ticket from "./components/ticket-page/Ticket";

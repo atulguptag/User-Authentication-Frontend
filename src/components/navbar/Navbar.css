@@ -1,36 +1,14 @@
 * {
   padding: 0;
   margin: 0;
-  box-sizing: border-box;
   align-content: center;
 }
 
-.site-lower-row-container-inner {
-  display: flex;
-  align-items: center;
-  background-color: white;
-  height: 80px;
-  padding: 0 64px;
-  justify-content: space-between;
-}
-
-.my-navbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 100%;
-  padding: 0 64px;
-  height: 80px;
-  border-style: inset;
-}
-
-.search-bar {
-  display: flex;
-}
-
 .main-nav {
-  display: flex;
   width: 100%;
+  height: 100px;
+  display: flex;
+  align-items: inherit;
 }
 
 .nav-1 {
@@ -48,8 +26,8 @@
 
 .login-btn {
   display: flex;
+  margin-right: 30px;
   justify-content: flex-end;
-  margin-right: 20px;
 }
 
 .home-nav:hover {
@@ -57,14 +35,9 @@
   transition: 0.5s;
 }
 
-.nav--icon {
+.nav-icon {
+  width: 80%;
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 70%;
-  padding-bottom: 22px;
-}
-
-.container-fluid-nav {
-  width: 100%;
+  position: initial;
+  padding-bottom: 25px;
 }

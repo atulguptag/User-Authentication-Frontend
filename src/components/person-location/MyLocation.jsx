@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import "./MyLocation.css";
 
-const LocationComponent = () => {
+const MyLocation = () => {
   const [latitude, setLatitude] = useState(null);
   const [longitude, setLongitude] = useState(null);
 
@@ -17,15 +16,10 @@ const LocationComponent = () => {
   }, []);
 
   return (
-    <div className="location-component">
-      <h2>Your current location:</h2>
-      {latitude && longitude ? (
-        <p>Latitude: {latitude}, Longitude: {longitude}</p>
-      ) : (
-        <p>Loading...</p>
-      )}
+    <div className="text-center">
+      <p>Latitude: {latitude}, Longitude: {longitude}</p>
     </div>
   );
 };
 
-export default LocationComponent;
+export default MyLocation;

@@ -1,5 +1,5 @@
-import { useState, useEffect } from "react";
 import "./mainpage-card-slider.css";
+import { useState, useEffect } from "react";
 import MainpageCardSlider from "./MainpageCardSlider";
 
 const MoviesAndComingmovies = () => {
@@ -20,7 +20,7 @@ const MoviesAndComingmovies = () => {
           >
             Movies In Theaters
           </button>
-          {/* <button
+          <button
             className="nav-link film-options"
             id="nav-profile-tab"
             data-bs-toggle="tab"
@@ -28,10 +28,10 @@ const MoviesAndComingmovies = () => {
             type="button"
             role="tab"
             aria-controls="nav-profile"
-            aria-selected="false"
+            aria-selected="true"
           >
             Coming Soon
-          </button> */}
+          </button>
         </div>
       </div>
       <div className="tab-content" id="nav-tabContent">
